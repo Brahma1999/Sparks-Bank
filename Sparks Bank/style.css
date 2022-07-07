@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background:rgba(0,0,0,0.6) url(bank.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+	font-family: "Poppins",sans-serif;
+	font-weight: 500;
+  background-blend-mode: darken;
+}
+
+/* navigation styles start here */
+header {
+  background:transparent;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo{
+    color: white;
+    font-size: 30px;
+    text-shadow:
+        0.02em 0 black,
+        0 0.00em black,
+        -0.02em 0 black,
+        0 -0.02em black;
+}
+
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: transparent;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0px 0px 0px 0px;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 550;
+  text-shadow: 2px solid black;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/*-------------------------------------Responive navbar---------------------------------------------*/
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo {
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    all: unset;
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
+
+
+/*---------------============----------------------Container--------------=================-----------------------------*/
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.container h2{
+    font-size: 40px;
+    margin-bottom:0;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+.container h1{
+    font-size: 50px;
+    margin-top:5px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+footer{
+  width: 100%;
+  margin-top: -45px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color:beige;
+  font-weight: 450;
+}
+
+footer a{
+  color:beige;
+  text-decoration: none;
+}
+
+
+/*------------------==========================--------------========--END of Index Page-----==============================---------------------*/
+
+
+/*------------------==========================--------------=======Customer Details Start---==============================---------------------*/
+
+#customer-head{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom:0;
+    color: whitesmoke;
+    margin-bottom: 7px;
+}
+
+td,th 
+{
+   border: 1px solid black; 
+   padding: 7px;
+}
+
+#Table
+{ 
+  width: 60%;
+  border-collapse: collapse;
+  margin: 0px auto;
+  border: 1px solid white;
+  font-weight: 400;
+}
+
+#Table th {
+  padding-top: 12px; 
+  padding-bottom: 12px; 
+  text-align:center;
+  background-color:#3e3577; 
+  color:white; 
+}
+
+#Table tr:nth-child(even)
+{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: gainsboro;
+}
+
+#Table tr:nth-child(odd)
+{
+  background-color: rgba(0, 0, 0, 0.6);
+  color:gainsboro;
+}
+
+#Table tr:hover
+{ 
+  background-color: #7662f7;
+  color: whitesmoke;
+}
+
+/*---------------============----------------------Customer Details END--------------=================-----------------------------*/
+
+
+/*---------------==================-----------------Transfer Money Start--------------=================-----------------------------*/
+.dark_body {
+	margin: 0;
+	background:rgba(0,0,0,0.7) url(bank.webp);
+  background-size: cover;
+  background-position: center;
+	font-family: "Poppins",sans-serif;
+	font-weight: 500;
+  background-blend-mode: darken;
+}
+.box{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.box-in{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#trans_money
+{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom:0;
+  color: whitesmoke;
+}
+
+.transferMoney{
+  display: flex;
+  justify-content: center;
+}
+
+.transferMoney form{
+  width: 60%;
+  background:#7662f7;
+  border-radius: 40px;
+  padding: 7%;
+  flex-wrap: wrap;
+}
+
+.transferMoney #table1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.transferMoney #table1 .tb{
+  border: none;
+  justify-content: center;
+  padding: 10px;
+}
+
+.transferMoney #table1 .tb input{
+  width: 100%;
+  border:1px solid white;
+  border-radius:2px;
+}
+
+#proceed{
+  background:#32067d;
+  color: white;
+  font-family: "Poppins",sans-serif;
+  padding: 5px;
+}
+
+/*--------------==============-================================Transfer Money End=================================================-----------------------------*/
+/*--------------==============-================================Result Page=================================================-----------------------------*/
+.center{
+  margin: 0;
+	background:rgba(0,0,0,0.7) url(bank.webp);
+  background-size: cover;
+  background-position: center;
+	font-family: "Poppins",sans-serif;
+	font-weight: 500;
+  background-blend-mode: darken;
+  height: 100vh;   
+}
+.center2{
+  width:100%;
+  height: 100vh;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.center2 h1{
+  color: rgb(72, 241, 72);
+  margin-top: 30px;
+  
+}
+
+.center2 p{
+  color: whitesmoke;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+#h1_Fail{
+  width: 100%;
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+}
+
+
+/*--------------==============-===========================TRANSACTION HISTORY=========================================-----------------------------*/
+.contain{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.contain h2{
+  margin-top: 100px;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: whitesmoke;
+  font-weight: 500;
+}
+
+#foot_id{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color:beige;
+  font-weight: 450;
+}
+
+/*--------------==============-=================================================================================================================
+
+==========================================================THE END===============================================================================
+
+====================================================================================================================-----------------------------*/
+
